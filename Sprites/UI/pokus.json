@@ -1,0 +1,76 @@
+{
+    "LevelsCollection": [
+        {
+            "LevelID": 1,
+            "TypeCount": 3,
+            "MusicName": "Sound1",
+            "BackgroundName": "background1.png",
+            "GridSizeX": 8,
+            "GridSizeY": 8,
+            "Timer": 59,
+            "LevelUp": 300,
+            "BonusTimer": false,
+            "BonusBomb": false
+        },
+        {
+            "LevelID": 2,
+            "TypeCount": 3,
+            "MusicName": "Sound2",
+            "BackgroundName": "background2.png",
+            "GridSizeX": 8,
+            "GridSizeY": 8,
+            "Timer": 59,
+            "LevelUp": 300,
+            "BonusTimer": true,
+            "BonusBomb": false
+        },
+        {
+            "LevelID": 3,
+            "TypeCount": 3,
+            "MusicName": "Sound3",
+            "BackgroundName": "background3.png",
+            "GridSizeX": 8,
+            "GridSizeY": 8,
+            "Timer": 59,
+            "LevelUp": 300,
+            "BonusTimer": true,
+            "BonusBomb": false
+        },
+        {
+            "LevelID": 4,
+            "TypeCount": 3,
+            "MusicName": "Sound4",
+            "BackgroundName": "background4.png",
+            "GridSizeX": 8,
+            "GridSizeY": 8,
+            "Timer": 59,
+            "LevelUp": 300,
+            "BonusTimer": true,
+            "BonusBomb": true
+        },
+        {
+            "LevelID": 5,
+            "TypeCount": 3,
+            "MusicName": "Sound5",
+            "BackgroundName": "background5.png",
+            "GridSizeX": 8,
+            "GridSizeY": 8,
+            "Timer": 59,
+            "LevelUp": 300,
+            "BonusTimer": true,
+            "BonusBomb": true
+        },
+        {
+            "LevelID": 6,
+            "TypeCount": 3,
+            "MusicName": "Sound6",
+            "BackgroundName": "background6.png",
+            "GridSizeX": 8,
+            "GridSizeY": 8,
+            "Timer": 59,
+            "LevelUp": 300,
+            "BonusTimer": true,
+            "BonusBomb": true
+        }
+    ]
+}

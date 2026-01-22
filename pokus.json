@@ -1,0 +1,112 @@
+{
+    "LevelsCollection": [
+        {
+            "LevelID": 1,
+            "TypeCount": 4,
+            "MusicName": "Sound1",
+            "BackgroundName": "background1.png",
+            "GridSizeX": 6,
+            "GridSizeY": 6,
+            "TimeMax": 59,
+            "LevelUp": 100,
+            "BonusTimer": false,
+            "BonusBomb": false
+        },
+        {
+            "LevelID": 2,
+            "TypeCount": 4,
+            "MusicName": "Sound2",
+            "BackgroundName": "background2.png",
+            "GridSizeX": 7,
+            "GridSizeY": 7,
+            "TimeMax": 59,
+            "LevelUp": 100,
+            "BonusTimer": false,
+            "BonusBomb": false
+        },
+        {
+            "LevelID": 3,
+            "TypeCount": 5,
+            "MusicName": "Sound3",
+            "BackgroundName": "background3.png",
+            "GridSizeX": 8,
+            "GridSizeY": 8,
+            "TimeMax": 59,
+            "LevelUp": 100,
+            "BonusTimer": true,
+            "BonusBomb": false
+        },
+        {
+            "LevelID": 4,
+            "TypeCount": 5,
+            "MusicName": "Sound4",
+            "BackgroundName": "background4.png",
+            "GridSizeX": 8,
+            "GridSizeY": 8,
+            "TimeMax": 39,
+            "LevelUp": 100,
+            "BonusTimer": true,
+            "BonusBomb": false
+        },
+        {
+            "LevelID": 5,
+            "TypeCount": 6,
+            "MusicName": "Sound5",
+            "BackgroundName": "background5.png",
+            "GridSizeX": 8,
+            "GridSizeY": 8,
+            "TimeMax": 59,
+            "LevelUp": 100,
+            "BonusTimer": false,
+            "BonusBomb": true
+        },
+        {
+            "LevelID": 6,
+            "TypeCount": 6,
+            "MusicName": "Sound6",
+            "BackgroundName": "background6.png",
+            "GridSizeX": 8,
+            "GridSizeY": 8,
+            "TimeMax": 119,
+            "LevelUp": 100,
+            "BonusTimer": false,
+            "BonusBomb": false
+        },
+        {
+            "LevelID": 7,
+            "TypeCount": 7,
+            "MusicName": "Sound7",
+            "BackgroundName": "background8.png",
+            "GridSizeX": 8,
+            "GridSizeY": 8,
+            "TimeMax": 59,
+            "LevelUp": 150,
+            "BonusTimer": true,
+            "BonusBomb": true
+        },
+        {
+            "LevelID": 8,
+            "TypeCount": 7,
+            "MusicName": "Sound8",
+            "BackgroundName": "background8.png",
+            "GridSizeX": 7,
+            "GridSizeY": 7,
+            "TimeMax": 59,
+            "LevelUp": 100,
+            "BonusTimer": true,
+            "BonusBomb": true
+        },
+        {
+            "LevelID": 9,
+            "TypeCount": 8,
+            "MusicName": "Sound1",
+            "BackgroundName": "background9.png",
+            "GridSizeX": 8,
+            "GridSizeY": 8,
+            "TimeMax": 79,
+            "LevelUp": 150,
+            "BonusTimer": true,
+            "BonusBomb": true
+        }
+    ]
+}

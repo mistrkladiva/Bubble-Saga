@@ -1,0 +1,287 @@
+[gd_scene load_steps=29 format=2]
+
+[ext_resource path="res://Scripts/SceneManager.cs" type="Script" id=1]
+[ext_resource path="res://Sprites/timer_under.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/timer_progress.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/UI/intro-background.png" type="Texture" id=4]
+[ext_resource path="res://Fonts/arial.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://Sound/level3.mp3" type="AudioStream" id=6]
+[ext_resource path="res://Sound/Level1.mp3" type="AudioStream" id=7]
+[ext_resource path="res://Sound/level2.mp3" type="AudioStream" id=8]
+[ext_resource path="res://Sound/level4.mp3" type="AudioStream" id=9]
+[ext_resource path="res://Sprites/UI/btn-start-game.png" type="Texture" id=10]
+[ext_resource path="res://Sound/level7.mp3" type="AudioStream" id=11]
+[ext_resource path="res://Sound/level10.mp3" type="AudioStream" id=12]
+[ext_resource path="res://Sound/level6.mp3" type="AudioStream" id=13]
+[ext_resource path="res://Sound/level5.mp3" type="AudioStream" id=14]
+[ext_resource path="res://Sprites/UI/btn-start-game_over.png" type="Texture" id=15]
+[ext_resource path="res://Sprites/background1.png" type="Texture" id=16]
+[ext_resource path="res://Sound/intro1.mp3" type="AudioStream" id=17]
+[ext_resource path="res://Sprites/UI/logo.png" type="Texture" id=18]
+[ext_resource path="res://Scripts/MusicManager.cs" type="Script" id=54]
+
+[sub_resource type="DynamicFont" id=3]
+size = 100
+use_filter = true
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://Fonts/arial.ttf"
+
+[sub_resource type="DynamicFont" id=2]
+size = 50
+use_filter = true
+font_data = SubResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=8]
+bg_color = Color( 0.839216, 0.152941, 0.588235, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id=9]
+bg_color = Color( 0.329412, 0, 0.341176, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_color = Color( 0.721569, 0.686275, 0.686275, 0.6 )
+shadow_size = 3
+
+[sub_resource type="StyleBoxTexture" id=4]
+texture = ExtResource( 15 )
+region_rect = Rect2( 0, 0, 339, 117 )
+
+[sub_resource type="StyleBoxTexture" id=5]
+texture = ExtResource( 10 )
+region_rect = Rect2( 0, 0, 338, 117 )
+
+[sub_resource type="StyleBoxTexture" id=7]
+texture = ExtResource( 10 )
+region_rect = Rect2( 0, 0, 338, 117 )
+
+[sub_resource type="Theme" id=6]
+Button/styles/hover = SubResource( 4 )
+Button/styles/normal = SubResource( 5 )
+Button/styles/pressed = SubResource( 7 )
+
+[node name="Main" type="Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -640.0
+margin_top = -640.0
+margin_right = 640.0
+margin_bottom = 640.0
+mouse_filter = 2
+size_flags_horizontal = 2
+size_flags_vertical = 2
+
+[node name="ViewportContainer" type="ViewportContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -640.0
+margin_top = -360.0
+margin_right = 640.0
+margin_bottom = 360.0
+mouse_filter = 2
+size_flags_horizontal = 2
+size_flags_vertical = 2
+
+[node name="Viewport" type="Viewport" parent="ViewportContainer"]
+size = Vector2( 1280, 720 )
+size_override_stretch = true
+handle_input_locally = false
+usage = 0
+render_target_update_mode = 3
+physics_object_picking = true
+
+[node name="Background" type="Sprite" parent="ViewportContainer/Viewport"]
+scale = Vector2( 1.15, 1.15 )
+texture = ExtResource( 16 )
+
+[node name="MusicManager" type="Node2D" parent="ViewportContainer/Viewport"]
+script = ExtResource( 54 )
+Music1Path = NodePath("../Music1")
+Music2Path = NodePath("../Music2")
+MusicDictionary = {
+"Intro": ExtResource( 17 ),
+"Sound1": ExtResource( 7 ),
+"Sound2": ExtResource( 8 ),
+"Sound3": ExtResource( 6 ),
+"Sound4": ExtResource( 9 ),
+"Sound5": ExtResource( 14 ),
+"Sound6": ExtResource( 13 ),
+"Sound7": ExtResource( 11 ),
+"Sound8": ExtResource( 12 )
+}
+
+[node name="SceneManager" type="Node2D" parent="ViewportContainer/Viewport"]
+script = ExtResource( 1 )
+_StartUIPath = NodePath("../UI/StartUI")
+_NextUIPath = NodePath("../UI/NextUI")
+_Txt_ScorePath = NodePath("../UI/TxtScore")
+_Txt_LevelPath = NodePath("../UI/TxtLevel")
+_ProgressLevelPath = NodePath("../UI/ProgressBar")
+_TimerPath = NodePath("../Timer")
+_GameProgressPath = NodePath("../UI/TextureProgress")
+_BackgroundPath = NodePath("../Background")
+
+[node name="UI" type="CanvasLayer" parent="ViewportContainer/Viewport"]
+follow_viewport_enable = true
+
+[node name="TxtLevel" type="Label" parent="ViewportContainer/Viewport/UI"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -241.0
+margin_top = -84.0
+margin_right = 241.0
+margin_bottom = 84.0
+custom_fonts/font = SubResource( 3 )
+text = "Level 1"
+align = 1
+valign = 1
+
+[node name="TxtScore" type="Label" parent="ViewportContainer/Viewport/UI"]
+visible = false
+margin_left = 7.0
+margin_top = 295.0
+margin_right = 203.0
+margin_bottom = 352.0
+custom_fonts/font = SubResource( 2 )
+text = "200"
+align = 1
+valign = 1
+
+[node name="TextureProgress" type="TextureProgress" parent="ViewportContainer/Viewport/UI"]
+anchor_left = 0.5
+anchor_top = 0.038
+anchor_right = 0.5
+anchor_bottom = 0.038
+margin_right = -2.0
+margin_bottom = 181.0
+grow_horizontal = 0
+grow_vertical = 0
+rect_scale = Vector2( 0.4, 0.4 )
+max_value = 59.0
+texture_under = ExtResource( 2 )
+texture_progress = ExtResource( 3 )
+texture_progress_offset = Vector2( 16, 16 )
+fill_mode = 4
+
+[node name="ProgressBar" type="ProgressBar" parent="ViewportContainer/Viewport/UI"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -90.0
+margin_top = 48.0
+margin_right = 160.0
+margin_bottom = 70.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+custom_styles/fg = SubResource( 8 )
+custom_styles/bg = SubResource( 9 )
+max_value = 300.0
+step = 1.0
+percent_visible = false
+
+[node name="ProgressBar2" type="ProgressBar" parent="ViewportContainer/Viewport/UI"]
+visible = false
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -111.0
+margin_top = 56.0
+margin_right = 162.0
+margin_bottom = 77.0
+size_flags_horizontal = 2
+size_flags_vertical = 2
+custom_styles/fg = SubResource( 8 )
+custom_styles/bg = SubResource( 9 )
+max_value = 300.0
+step = 1.0
+percent_visible = false
+
+[node name="StartUI" type="Node2D" parent="ViewportContainer/Viewport/UI"]
+
+[node name="Introbackground" type="Sprite" parent="ViewportContainer/Viewport/UI/StartUI"]
+texture = ExtResource( 4 )
+centered = false
+
+[node name="BtnStartGame" type="Button" parent="ViewportContainer/Viewport/UI/StartUI"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 500.0
+margin_top = 322.0
+margin_right = 824.0
+margin_bottom = 426.0
+grow_horizontal = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = SubResource( 6 )
+icon_align = 1
+
+[node name="Logo" type="Sprite" parent="ViewportContainer/Viewport/UI/StartUI"]
+position = Vector2( 640, 200 )
+texture = ExtResource( 18 )
+
+[node name="LogoMale" type="Sprite" parent="ViewportContainer/Viewport/UI/StartUI"]
+visible = false
+position = Vector2( 640, 200 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 18 )
+
+[node name="NextUI" type="Node2D" parent="ViewportContainer/Viewport/UI"]
+visible = false
+
+[node name="Introbackground" type="Sprite" parent="ViewportContainer/Viewport/UI/NextUI"]
+texture = ExtResource( 4 )
+centered = false
+
+[node name="BtnNextGame" type="Button" parent="ViewportContainer/Viewport/UI/NextUI"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 500.0
+margin_top = 322.0
+margin_right = 824.0
+margin_bottom = 426.0
+grow_horizontal = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = SubResource( 6 )
+icon_align = 1
+
+[node name="Logo" type="Sprite" parent="ViewportContainer/Viewport/UI/NextUI"]
+position = Vector2( 640, 200 )
+texture = ExtResource( 18 )
+
+[node name="LogoMale" type="Sprite" parent="ViewportContainer/Viewport/UI/NextUI"]
+visible = false
+position = Vector2( 640, 200 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 18 )
+
+[node name="Timer" type="Timer" parent="ViewportContainer/Viewport"]
+
+[node name="Music1" type="AudioStreamPlayer" parent="ViewportContainer/Viewport"]
+volume_db = -50.0
+bus = "Music"
+
+[node name="Music2" type="AudioStreamPlayer" parent="ViewportContainer/Viewport"]
+volume_db = -50.0
+bus = "Music"
+
+[connection signal="pressed" from="ViewportContainer/Viewport/UI/StartUI/BtnStartGame" to="ViewportContainer/Viewport/SceneManager" method="OnBtnStartGamePressed"]
+[connection signal="pressed" from="ViewportContainer/Viewport/UI/NextUI/BtnNextGame" to="ViewportContainer/Viewport/SceneManager" method="OnBtnNextGamePressed"]
+[connection signal="timeout" from="ViewportContainer/Viewport/Timer" to="ViewportContainer/Viewport/SceneManager" method="OnTimerTimeout"]

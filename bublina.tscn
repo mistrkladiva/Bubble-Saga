@@ -1,0 +1,123 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Scripts/Bublina.cs" type="Script" id=1]
+[ext_resource path="res://Sprites/selector.png" type="Texture" id=2]
+[ext_resource path="res://ParticleHvezdy.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Sound/bubble-sound.ogg" type="AudioStream" id=4]
+[ext_resource path="res://Sound/bubble_01.ogg" type="AudioStream" id=5]
+[ext_resource path="res://Sprites/minh-truong-bubble-shooter-balls.png" type="Texture" id=282]
+
+[sub_resource type="AtlasTexture" id=1]
+flags = 4
+atlas = ExtResource( 282 )
+region = Rect2( 106, 77, 200, 200 )
+
+[sub_resource type="CircleShape2D" id=6]
+radius = 91.17
+
+[sub_resource type="Animation" id=5]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0.2, 0.2 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "Scale_DOWN"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.3, 0.3 ), Vector2( 0.35, 0.35 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1.93187 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "Scale_UP"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.05, 0.05 ), Vector2( 0.3, 0.3 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[node name="Bublina" type="StaticBody2D"]
+modulate = Color( 1, 1, 1, 0 )
+scale = Vector2( 0.2, 0.2 )
+input_pickable = true
+script = ExtResource( 1 )
+_Particle_Pref = ExtResource( 3 )
+_SoundDeletePath = NodePath("AudioDeath")
+_SoundBombPath = NodePath("AudioBomb")
+_AnimationPath = NodePath("AnimationPlayer")
+_Sprite_SprtPath = NodePath("BublonaSprt")
+_SelectorPath = NodePath("Selector")
+
+[node name="Selector" type="Sprite" parent="."]
+visible = false
+texture = ExtResource( 2 )
+
+[node name="BublonaSprt" type="Sprite" parent="."]
+texture = SubResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 6 )
+one_way_collision = true
+
+[node name="AudioDeath" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+bus = "Sound"
+
+[node name="AudioBomb" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+bus = "Sound"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 5 )
+anims/Scale_DOWN = SubResource( 3 )
+anims/Scale_UP = SubResource( 4 )
