@@ -1,5 +1,21 @@
-# Godot 4+ specific ignores
+# Godot
 .godot/
-.vs
-.vscode
-Build/
+.mono/
+
+# Build / Export
+Bulid/
+Exports/
+
+# C#
+bin/
+obj/
+
+# Visual Studio
+.vs/
+.vscode/
+*.user
+*.suo
+
+# OS
+.DS_Store
+Thumbs.db
