@@ -1,6 +1,7 @@
 # Godot
 .godot/
 .mono/
+.import/
 
 # Build / Export
 Bulid/
